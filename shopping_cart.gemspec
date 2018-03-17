@@ -9,14 +9,25 @@ Gem::Specification.new do |s|
   s.version     = ShoppingCart::VERSION
   s.authors     = ["Eugene V."]
   s.email       = ["kokokoi9@mail.ru"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ShoppingCart."
-  s.description = "TODO: Description of ShoppingCart."
+  s.homepage    = "https://github.com/reebok159/shopping_cart"
+  s.summary     = "Summary of ShoppingCart."
+  s.description = "Description of ShoppingCart."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 5.1.5"
+  s.add_dependency 'aasm', '~> 4.12', '>= 4.12.2'
+  s.add_dependency 'devise', '~> 4.3'
+  s.add_dependency 'haml-rails', '~> 1.0'
+  #s.add_dependency 'i18n', '~> 0.8.6'
+  #s.add_dependency 'simple_form', '~> 3.5'
+  #s.add_dependency 'country_select', '~> 3.1', '>= 3.1.1'
+  #s.add_dependency 'cancancan', '~> 2.0'
 
+  s.add_development_dependency 'rspec-rails', '~> 3.6', '>= 3.6.1'
+  s.add_development_dependency 'capybara', '~> 2.13.0'
+  s.add_development_dependency 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
   s.add_development_dependency "sqlite3"
 end
