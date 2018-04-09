@@ -22,29 +22,29 @@
   .hidden-xs.hidden-sm
     .row
       .col-md-5
-        %h3.general-subtitle= t('.billaddress')
+        %h3.general-subtitle= t('checkout.address.billaddress')
         %p.general-info-text= t('checkout.allrequired')
       .col-md-5.col-md-offset-1
-        %h3.general-subtitle= t('.shaddress')
+        %h3.general-subtitle= t('checkout.address.shaddress')
   .row
     .col-md-5.mb-40
       .visible-xs.visible-sm
-        %h3.general-subtitle= t('.billaddress')
+        %h3.general-subtitle= t('checkout.address.billaddress')
         %p.general-info-text= t('checkout.allrequired')
-      = f.simple_fields_for :billing_address, @form.billing_address, wrapper: :custom do |bia|
-        = render partial: "users/address", locals: { adr: bia }
+      = f.simple_fields_for :billing_address, @form.billing_address do |bia|
+        = render partial: "address_form", locals: { adr: bia }
     .col-md-5.col-md-offset-1.mb-60
       .egn-shipping-block{style: ('display: none;' unless @order.use_billing.nil?)}
         .visible-xs.visible-sm
-          %h3.general-subtitle= t('.shaddress')
-        = f.simple_fields_for :shipping_address, @form.shipping_address, wrapper: :custom do |sh|
-          = render partial: "users/address", locals: { adr: sh }
+          %h3.general-subtitle= t('checkout.address.shaddress')
+        = f.simple_fields_for :shipping_address, @form.shipping_address do |sh|
+          = render partial: "address_form", locals: { adr: sh }
       .form-group.checkbox
         %label.checkbox-label
-          %input.checkbox-input.egn-use_billing{type: "checkbox", hidden: "true", name: "use_billing", checked: (true unless @order.use_billing.nil?)}
+          %input.checkbox-input.egn-use_billing{type: "checkbox", name: "use_billing", checked: (true unless @order.use_billing.nil?)}
           %span.checkbox-icon
             %i.fa.fa-check
-          %span.checkbox-text= t('.usebilladdress')
+          %span.checkbox-text= t('checkout.address.usebilladdress')
   .general-text-align.mb-60
     %p.in-gold-500.font-18= t('checkout.ordersumm')
     %table.general-summary-table

@@ -5,7 +5,7 @@ class CreateShoppingCartCreditCards < ActiveRecord::Migration[5.1]
       t.string "name"
       t.string "expires"
       t.string "cvv"
-      t.belongs_to :order, foreign_key: true, index: true
+      t.belongs_to :order, foreign_key: { to_table: :shopping_cart_orders }, index: true
       t.timestamps
     end
   end

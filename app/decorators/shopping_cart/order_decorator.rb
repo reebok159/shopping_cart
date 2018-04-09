@@ -19,7 +19,7 @@ module ShoppingCart
     end
 
     def items
-      object.order_items#.decorate
+      object.order_items
     end
   end
 end

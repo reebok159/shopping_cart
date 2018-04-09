@@ -23,6 +23,16 @@ en:
     placeorder: 'Place Order'
     isinvalid: 'is invalid'
     order: 'Order'
+    addrform:
+      firstname: 'First Name'
+      lastname: 'Last Name'
+      address: 'Address'
+      city: 'City'
+      zip: 'Zip'
+      country: 'Country'
+      selcountry: 'Select a country'
+      phone: 'Phone'
+      example: 'Example'
     itemlist:
       book: 'Book'
       price: 'Price'

@@ -1,19 +1,14 @@
-require 'cancan'
-require 'devise'
-require 'aasm'
-require 'draper'
-require 'haml'
-require 'simple_form'
 require "shopping_cart/engine"
 
 module ShoppingCart
-  class Engine < ::Rails::Engine
+  mattr_accessor :product_class
+  mattr_accessor :user_class
 
-    config.generators do |g|
-      g.test_framework      :rspec,        fixture: false
-      g.fixture_replacement :factory_bot, dir: 'spec/factories'
-      g.assets false
-      g.helper false
-    end
+  def self.product_class
+    @@product_class.constantize
+  end
+
+  def self.user_class
+    @@user_class.constantize
   end
 end

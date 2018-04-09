@@ -46,7 +46,7 @@ module ShoppingCart
     end
 
     def items
-      @order.order_items.decorate
+      @order.order_items
     end
 
     private

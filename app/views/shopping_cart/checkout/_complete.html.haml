@@ -39,66 +39,40 @@
       %br
       = @order.billing_address.country
       %br
-      = "#{t('users.addrform.phone')} #{@order.billing_address.phone}"
+      = "#{t('checkout.addrform.phone')} #{@order.billing_address.phone}"
   .col-sm-6.hidden-xs.text-right
     %p.general-order-number.mb-0= "#{t('checkout.order')} ##{@order.number}"
     %p.general-address.mb-30= @order.completed_at
-.visible-xs
-  - @service.items.each do |order_item|
-    - item = order_item.book
-    .general-cart-item.divider-lg
-      .general-img-wrap-table
-        = image_tag(item.cover(:thumb), class: 'cart-img-shadow', alt: item.name)
-      %p.title= item.name
-      %P.in-grey-600.fw-300= item.short_desc
-      %table.table
-        %tr
-          %td
-            %span.in-grey-600= t('checkout.itemlist.price')
-          %td
-            %span.font-16.in-gold-500= number_to_currency(item.price, price_options)
-        %tr
-          %td.vertical-middle
-            %span.in-grey-600= t('checkout.itemlist.quantity')
-          %td
-            %span= order_item.quantity
-        %tr
-          %td
-            %span.in-grey-600= t('checkout.itemlist.subtotal')
-          %td
-            %span.font-16.in-gold-500= number_to_currency((order_item.quantity * item.price), price_options)
-.hidden-xs.divider-lg.pt-20
-  %table.table.table-hover
-    %thead
+%table.table.table-hover
+  %thead
+    %tr
+      %th
+        %span.in-grey-600= t('checkout.itemlist.book')
+      %th.col-method
+      %th
+        %span.in-grey-600= t('checkout.itemlist.price')
+      %th
+        %span.in-grey-600= t('checkout.itemlist.quantity')
+      %th
+        %span.in-grey-600= t('checkout.itemlist.total')
+  %tbody
+    - @service.items.each do |order_item|
+      - item = order_item.product
       %tr
-        %th
-          %span.in-grey-600= t('checkout.itemlist.book')
-        %th.col-method
-        %th
-          %span.in-grey-600= t('checkout.itemlist.price')
-        %th
-          %span.in-grey-600= t('checkout.itemlist.quantity')
-        %th
-          %span.in-grey-600= t('checkout.itemlist.total')
-    %tbody
-      - @service.items.each do |order_item|
-        - item = order_item.book
-        %tr
-          %td
-            .general-img-wrap-table
-              = image_tag(item.cover(:thumb), class: 'cart-img-shadow pull-left', alt: item.name)
-          %td
-            %p.title= item.name
-            %p.in-grey-600.fw-300= item.short_desc
-          %td
-            %span.font-16.in-gold-500= number_to_currency(item.price, price_options)
-          %td
-            %span.ml-30= order_item.quantity
-          %td
-            %span.font-16.in-gold-500= number_to_currency((order_item.quantity * item.price), price_options)
+        %td
+          .general-img-wrap-table
+            image
+        %td
+          %p.title= item.name
+        %td
+          %span.font-16.in-gold-500= number_to_currency(item.price, price_options)
+        %td
+          %span.ml-30= order_item.quantity
+        %td
+          %span.font-16.in-gold-500= number_to_currency((order_item.quantity * item.price), price_options)
 .text-center.general-text-right
   %p.in-gold-500.font-18= t('checkout.ordersumm')
   %table.general-summary-table.general-summary-table-right.general-text-right
     = render partial: "cost", object: @order
 .text-center
-  = link_to(t('checkout.backtostore'), root_path, class: "btn btn-default mb-20")
+  = link_to(t('checkout.backtostore'), cart_page_path, class: "btn btn-default mb-20")

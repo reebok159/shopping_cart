@@ -1,7 +1,7 @@
 module ShoppingCart
   class Order < ApplicationRecord
     include AASM
-    belongs_to :user, optional: true, class_name: 'User'
+    belongs_to :user, optional: true, class_name: ShoppingCart.user_class.to_s
 
     aasm column: 'checkout_state' do
       state :address, initial: true
@@ -48,7 +48,7 @@ module ShoppingCart
     end
 
     def subtotal
-      order_items.collect { |item| item.quantity * item.book.price }.sum
+      order_items.collect { |item| item.quantity * item.product.price }.sum
     end
 
     def total_items
