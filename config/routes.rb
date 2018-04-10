@@ -1,5 +1,4 @@
 ShoppingCart::Engine.routes.draw do
-
   resources :orders, only: %i[index show]
   resources :order_items, only: %i[create update destroy]
   get 'cart', to: 'orders#cart', as: 'cart_page'

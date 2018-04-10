@@ -65,11 +65,11 @@
         %td
           %p.title= item.name
         %td
-          %span.font-16.in-gold-500= number_to_currency(item.price, price_options)
+          %span.font-16.in-gold-500= number_to_currency(item.price)
         %td
           %span.ml-30= order_item.quantity
         %td
-          %span.font-16.in-gold-500= number_to_currency((order_item.quantity * item.price), price_options)
+          %span.font-16.in-gold-500= number_to_currency((order_item.quantity * item.price))
 .text-center.general-text-right
   %p.in-gold-500.font-18= t('checkout.ordersumm')
   %table.general-summary-table.general-summary-table-right.general-text-right
