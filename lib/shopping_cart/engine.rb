@@ -16,5 +16,11 @@ module ShoppingCart
       g.assets false
       g.helper false
     end
+
+    initializer :add_helpers do
+      ActiveSupport.on_load :action_controller do
+        ::ApplicationController.send(:helper, ShoppingCart::Engine.helpers)
+      end
+    end
   end
 end
