@@ -2,13 +2,15 @@ require 'rails_helper'
 
 module ShoppingCart
   RSpec.describe CheckoutController, type: :controller do
+    routes { ShoppingCart::Engine.routes }
+
     let(:user) { create(:user) }
     let!(:order) { create(:order) }
 
     describe '#start' do
       context 'when user no auth' do
         before(:each) do
-          @order_item = create(:order_item, book: create(:book))
+          @order_item = create(:order_item, product: create(:product))
           order.order_items << @order_item
           order.save
           cookies.signed[:order_id] = order.id
@@ -30,7 +32,7 @@ module ShoppingCart
       context 'when user no auth' do
         it 'redirect to log in page if no auth' do
           get :index
-          expect(response).to redirect_to(new_user_session_path)
+          expect(response).to have_http_status(302)
         end
       end
 
@@ -50,7 +52,7 @@ module ShoppingCart
         end
 
         it 'move cart to current user if :save_cart cookie is true' do
-          @order_item = create(:order_item, book: create(:book))
+          @order_item = create(:order_item, product: create(:product))
           order.order_items << @order_item
           order.save
           cookies.signed[:order_id] = order.id

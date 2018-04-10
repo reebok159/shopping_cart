@@ -2,6 +2,7 @@ require_dependency "shopping_cart/application_controller"
 
 module ShoppingCart
   class CheckoutController < ApplicationController
+    before_action :authenticate_user!, except: [:start]
     before_action :save_cart_after_login, :init, :check_order_not_empty
 
     def start

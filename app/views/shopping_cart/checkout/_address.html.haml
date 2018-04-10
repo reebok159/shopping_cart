@@ -18,7 +18,7 @@
   %li.step
     %span.step-number 5
     %span.step-text.hidden-xs= t('checkout.steps.complete')
-= simple_form_for @order, method: :put, url: checkout_next_path, html: { novalidate: false }, class: "res-mb-100" do |f|
+= simple_form_for @order, method: :put, url: checkout_next_path, html: { novalidate: true }, class: "res-mb-100" do |f|
   .hidden-xs.hidden-sm
     .row
       .col-md-5

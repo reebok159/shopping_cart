@@ -1,6 +1,7 @@
 class Ability
   include CanCan::Ability
   def initialize(user)
+    user ||= User.new
     can :manage, ShoppingCart::OrderItem, order: { user_id: user.id }
     can %i[create update cart], ShoppingCart::Order, user: user.id
 

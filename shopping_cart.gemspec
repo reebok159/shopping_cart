@@ -29,19 +29,15 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 
-  #gem 'capybara-webkit', '~> 1.14.0'
-  #gem
-  #gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
- # gem 'rails-controller-testing'
-  #gem
-  #gem 'transactional_capybara', '~> 0.0.1'
-
   s.add_development_dependency 'rspec-rails', '~> 3.6', '>= 3.6.1'
   s.add_development_dependency 'ffaker'
   s.add_development_dependency 'database_cleaner', '~> 1.6.1'
   s.add_development_dependency 'shoulda-matchers', '~> 3.1'
+  s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'capybara', '~> 2.13.0'
   s.add_development_dependency 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "pry"
+  s.add_development_dependency 'selenium-webdriver'
+  s.add_development_dependency 'capybara-webkit', '~> 1.14.0'
 end

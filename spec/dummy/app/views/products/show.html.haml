@@ -1,0 +1,6 @@
+= @book.name
+= simple_form_for :order_item, url: shopping_cart.order_items_path, html: { class: "egn_book_cart" }  do |f|
+  = f.input_field :quantity, as: :string, label: false, value: "1", class: "form-control quantity-input"
+  = f.input_field :product_id, as: :hidden, value: "#{@book.id}"
+  = button_tag(type: 'submit', class: 'btn btn-default pull-right general-position') do
+    ToCart

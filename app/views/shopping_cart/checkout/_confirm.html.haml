@@ -26,7 +26,7 @@
     %h3.general-subtitle= t('checkout.address.shaddress')
     %p.general-address
       = "#{@order.shipping_address.first_name} #{@order.shipping_address.last_name}"
-      = link_to t('.edit'), checkout_edit_path(type: :address), method: "put", class: "general-edit"
+      = link_to t('checkout.confirm.edit'), checkout_edit_path(type: :address), method: "put", class: "general-edit"
       %br
       = @order.shipping_address.address
       %br
@@ -39,7 +39,7 @@
     %h3.general-subtitle= t('checkout.address.billaddress')
     %p.general-address
       = "#{@order.billing_address.first_name} #{@order.billing_address.last_name}"
-      = link_to t('.edit'), checkout_edit_path(type: :address), method: "put", class: "general-edit"
+      = link_to t('checkout.confirm.edit'), checkout_edit_path(type: :address), method: "put", class: "general-edit"
       %br
       = @order.billing_address.address
       %br
@@ -49,15 +49,15 @@
       %br
       = "Phone #{@order.billing_address.phone}"
   .col-sm-3
-    %h3.general-subtitle= t('.shipments')
+    %h3.general-subtitle= t('checkout.confirm.shipments')
     %p.general-address
       = @order.delivery_method.try(:name)
-      = link_to t('.edit'), checkout_edit_path(type: :delivery), method: "put", class: "general-edit"
+      = link_to t('checkout.confirm.edit'), checkout_edit_path(type: :delivery), method: "put", class: "general-edit"
   .col-sm-3
-    %h3.general-subtitle= t('.paymentinfo')
+    %h3.general-subtitle= t('checkout.confirm.paymentinfo')
     %p.general-address
       = @order.short_card_number
-      = link_to t('.edit'), checkout_edit_path(type: :payment), method: "put", class: "general-edit"
+      = link_to t('checkout.confirm.edit'), checkout_edit_path(type: :payment), method: "put", class: "general-edit"
       %br
       = @order.credit_card.expires
 %table.table.table-hover

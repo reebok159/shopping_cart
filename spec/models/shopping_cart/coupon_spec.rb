@@ -2,6 +2,6 @@ require 'rails_helper'
 
 module ShoppingCart
   RSpec.describe Coupon, type: :model do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to have_many(:orders) }
   end
 end

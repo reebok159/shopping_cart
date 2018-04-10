@@ -38,7 +38,7 @@ module ShoppingCart
     end
 
     def order_item_params
-      params.require(:order_item).permit(:id, :book_id, :quantity)
+      params.require(:order_item).permit(:id, :product_id, :quantity)
     end
   end
 end
