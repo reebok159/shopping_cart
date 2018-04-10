@@ -20,6 +20,7 @@ module ShoppingCart
     initializer :add_helpers do
       ActiveSupport.on_load :action_controller do
         ::ApplicationController.send(:helper, ShoppingCart::Engine.helpers)
+        ::ApplicationController.send(:include, ShoppingCart::CurrentOrder)
       end
     end
   end
