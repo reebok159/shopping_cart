@@ -17,6 +17,15 @@ module ShoppingCart
       g.helper false
     end
 
+    config.to_prepare do
+      Dir.glob(Engine.root + 'app/decorators/**/*_decorator*.rb').each do |c|
+        require_dependency(c)
+      end
+      Dir.glob(Rails.root + 'app/decorators/**/*_decorator*.rb').each do |c|
+        require_dependency(c)
+      end
+    end
+
     initializer :add_helpers do
       ActiveSupport.on_load :action_controller do
         ::ApplicationController.send(:helper, ShoppingCart::Engine.helpers)
