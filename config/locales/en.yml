@@ -1,0 +1,116 @@
+en:
+  coupon:
+    noexist: "Coupon isn't exist"
+    cantactivate: "You cannot activate coupon"
+    sumerror: "You cannot activate coupon (order sum is not enough)"
+    termerror: "You cannot activate coupon (coupon has expired)"
+    activatesuccess: "Coupon activated!"
+  order_item:
+    create_success: "Item was added to cart"
+    create_fail: "Couldn't add item to cart"
+    update_fail: "Couldn't update item'"
+    clear_cart_fail: "Couldn't clear cart"
+    clear_cart_success: "Cart was cleared successfully"
+  checkout:
+    title: 'Checkout'
+    emptycart: 'Your cart is empty'
+    thanks: 'Thank You for your Order!'
+    thanks2: 'An order has been created for %{email}'
+    allrequired: 'all fields are required'
+    saveandcontinue: 'Save and Continue'
+    ordersumm: 'Order Summary'
+    backtostore: 'Back to Store'
+    placeorder: 'Place Order'
+    isinvalid: 'is invalid'
+    order: 'Order'
+    addrform:
+      firstname: 'First Name'
+      lastname: 'Last Name'
+      address: 'Address'
+      city: 'City'
+      zip: 'Zip'
+      country: 'Country'
+      selcountry: 'Select a country'
+      phone: 'Phone'
+      example: 'Example'
+    itemlist:
+      book: 'Book'
+      price: 'Price'
+      quantity: 'Quantity'
+      total: 'Total'
+      subtotal: 'SubTotal'
+    steps:
+      address: 'Address'
+      delivery: 'Delivery'
+      payment: 'Payment'
+      confirm: 'Confirm'
+      complete: 'Complete'
+    cost_p:
+      subtotal: 'Subtotal'
+      coupon: 'Coupon'
+      shipping: 'Shipping'
+      total: 'Total'
+    address:
+      billaddress: 'Billing Address'
+      shaddress: 'Shipping Address'
+      usebilladdress: 'Use Billing Address'
+    delivery:
+      dmethod: 'Delivery Method'
+      method: 'Method'
+      days: 'Days'
+      price: 'Price'
+    payment:
+      creditcard: 'Credit Card'
+      cardnumber: 'Card Number'
+      nameoncard: 'Name on Card'
+      mmyy: 'MM / YY'
+      cvv: 'CVV'
+    confirm:
+      shipments: 'Shipments'
+      paymentinfo: 'Payment Information'
+      edit: 'edit'
+  orders:
+    title: 'My Orders'
+    filterby: 'Filter'
+    donthaveorders: "You don't have any orders"
+    filter:
+      all: 'All'
+      waitforproc: 'Waiting for processing'
+      newest: 'Newest first'
+      popular: 'Popular first'
+      lowtohigh: 'Price: Low to hight'
+      hightolow: 'Price: Low to hight'
+    list:
+      number: 'Number'
+      completedat: 'Completed at'
+      status: 'Status'
+      total: 'Total'
+    status:
+      in_progress: 'In Progress'
+      in_queue: 'In Queue'
+      in_delivery: 'In Delivery'
+      delivered: ' Delivered'
+      canceled: 'Canceled'
+  cart:
+    checkout: 'Checkout'
+    title: 'Cart'
+    empty: 'Cart is empty'
+    itemlist:
+      product: 'Product'
+      price: 'Price'
+      quantity: 'Quantity'
+      subtotal: 'SubTotal'
+    coupon:
+      enteryourcode: 'Enter Your Coupon Code'
+      apply: 'Apply Coupon'
+      updcart: 'Update cart'
+    total:
+      ordersumm: 'Order Summary'
+      subtotal: 'Subtotal'
+      coupon: 'Coupon'
+      ordertotal: 'Order Total'
+  activerecord:
+    credit_card:
+      validation:
+        expires_invalid: "expires date is inalid"
+        expired: "card is expired"

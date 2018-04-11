@@ -1,0 +1,71 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= "#{t('checkout.order')} R#{@order.number}"
+  .row.mb-20
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('checkout.address.shaddress')
+      %p.general-address
+        = "#{@order.shipping_address.first_name} #{@order.shipping_address.last_name}"
+        %br
+        = @order.shipping_address.address
+        %br
+        = "#{@order.shipping_address.city} #{@order.shipping_address.zip}"
+        %br
+        = @order.shipping_address.country
+        %br
+        = "Phone #{@order.shipping_address.phone}"
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('checkout.address.billaddress')
+      %p.general-address
+        = "#{@order.billing_address.first_name} #{@order.billing_address.last_name}"
+        %br
+        = @order.billing_address.address
+        %br
+        = "#{@order.billing_address.city} #{@order.billing_address.zip}"
+        %br
+        = @order.billing_address.country
+        %br
+        = "Phone #{@order.billing_address.phone}"
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('checkout.confirm.shipments')
+      %p.general-address
+        = @order.delivery_method.try(:name)
+        %br
+        = "Cost #{number_to_currency(@order.delivery_method.try(:cost)}"
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('checkout.confirm.paymentinfo')
+      %p.general-address
+        = @order.short_card_number
+        %br
+        = @order.credit_card.expires
+  %table.table.table-hover
+    %thead
+      %tr
+        %th
+          %span.in-grey-600= t('checkout.itemlist.book')
+        %th.col-method
+        %th
+          %span.in-grey-600= t('checkout.itemlist.price')
+        %th
+          %span.in-grey-600= t('checkout.itemlist.quantity')
+        %th
+          %span.in-grey-600= t('checkout.itemlist.total')
+    %tbody
+      - @order.items.each do |order_item|
+        - item = order_item.product
+        %tr
+          %td
+            .general-img-wrap-table
+              img
+          %td
+            %p.title= item.name
+          %td
+            %span.font-16.in-gold-500= number_to_currency(item.price
+          %td
+            %span.ml-30= order_item.quantity
+          %td
+            %span.font-16.in-gold-500= number_to_currency((order_item.quantity * item.price)
+  .text-center.general-text-right
+    %p.in-gold-500.font-18= t('checkout.ordersumm')
+    %table.general-summary-table.general-summary-table-right.general-text-right
+      = render partial: "shopping_cart/checkout/cost", object: @order
+
